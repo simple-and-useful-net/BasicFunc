@@ -1,0 +1,18 @@
+
+<h1>更新処理(フォームクラス無し)</h1>
+
+<form method="POST" action ="{% url 'app1:update_post_url' pk %}" >
+    {% csrf_token %}
+
+    <label for="item">費目:</label>
+    <input type="text" name="item" value="{{ form.item }}" required><br>
+
+    <label for="price">金額:</label>
+    <input type="text" name="price" value="{{ form.price }}" required><br>
+
+    <label for="notes">ノート:</label>
+    <textarea name="notes" rows="10" cols="30">{{ form.notes }}</textarea>
+    <br>
+
+    <button type= "submit" >保存
+</form>

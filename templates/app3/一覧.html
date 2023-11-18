@@ -1,0 +1,47 @@
+<style>
+    span {
+        display: inline-block;
+        width:150px;
+    }
+
+    td {
+        width:150px;
+    }
+
+</style>
+
+
+<a href='{% url "menu"%}'>Menu</a><br>
+<h1>おこづかい帳</h1>
+
+<a href='{% url "app3:create_url"%}'>新規登録</a><br>
+<br>
+
+{% load rep %}
+
+
+<!-- 
+{% testStr as data_data %}
+
+{% autoescape off %}
+{% dispEx all_data '/app3/update/' '更新' '/app3/delete/' '削除' as dataABC %}
+{% endautoescape %}
+
+!{{dataABC | escape}}" -->
+
+
+{% autoescape off %}
+{{ all_data | dispFl }}
+{% endautoescape %}
+
+
+{% for rec in all_data %}
+    
+    <a href= "{% url 'app3:detail_url' rec.id %}">詳細</a>
+    <!-- <a href= "/app3/update/{{rec.id}}/">変更</a> -->
+    <a href= "{% url 'app3:update_url' rec.id %}">変更</a>
+    <a href= "{% url 'app3:delete_url' rec.id %}">削除</a>
+
+<span>{{ rec.item}}</span><span style="text-align: right">{{ rec.price}}円</span> <span>{{ rec.notes | rep_lf }}</span>
+    <br>
+    {% endfor %}

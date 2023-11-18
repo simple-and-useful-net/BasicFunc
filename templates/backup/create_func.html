@@ -1,0 +1,20 @@
+<h1>新規作成</h1>
+
+<form method="POST">
+    
+    {% csrf_token %}
+
+    <label for="item">費目:</label>
+    <input type="text" name="item">
+    <br>
+
+    <label for="price">金額:</label>
+    <input type="text" name="price">
+    <br>
+
+    <label for="notes">ノート:</label>
+    <textarea name="notes" rows="10" cols="30"></textarea>
+    <br>
+
+    <button type= "submit" >保存
+</form>

@@ -1,0 +1,22 @@
+
+<h1>詳細表示</h1>
+
+費目：
+{{ detail_data.item }}
+<br> 
+金額：
+{{ detail_data.price }}
+<br>
+<br>
+
+{% comment %}
+ノート：
+{{ detail_data.notes}}
+{% endcomment %}
+
+--- ノート---<br>
+{{ detail_data.notes | linebreaksbr }}
+
+<br>
+<br>
+<a href="{% url 'app3:list_url' %}">一覧へ</a>

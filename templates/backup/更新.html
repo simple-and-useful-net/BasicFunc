@@ -1,0 +1,11 @@
+<!-- <h1>更新処理</h1> -->
+{% firstof cre_title upd_title del_title ""  "更新" as syori  %}
+<h1>{{ syori }}処理</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type= "submit" >{{ syori }}
+</form>

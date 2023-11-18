@@ -1,0 +1,27 @@
+<style>
+    span {
+        display: inline-block;
+        width:150px;
+    }
+</style>
+
+
+<a href='{% url "menu"%}'>Menu</a><br>
+<h1>おこづかい帳</h1>
+
+<a href='{% url "app2:create_url"%}'>新規登録</a><br>
+
+<br>
+
+{% load rep %}
+{% for item in items %}
+    
+    <a href= "{% url 'app2:detail_url' item.id %}">詳細</a>
+    <a href= "{% url 'app2:update_url' item.id %}">変更</a>
+
+[{{ item.id }}]<span>{{ item.item}}</span><span style="text-align: right">{{ item.price}}円</span> <span>{{ item.notes | rep_lf }}</span>
+    <!-- コメントテスト1{{ item.notes }} -->
+    <!-- {# コメントテスト2{{ item.notes }} #} -->
+    <!-- <br> -->
+    <br>
+    {% endfor %}
